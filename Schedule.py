@@ -21,10 +21,10 @@ def notify_changes():
     subprocess.run(["python","Notifications.py"])
 
 # Schedule the updatePrice and Notifications tasks at specific times
-schedule.every().day.at("15:09").do(check_prices)
-schedule.every().day.at("15:10").do(notify_changes)
+schedule.every().day.at("21:30").do(check_prices)
+schedule.every().day.at("21:31").do(notify_changes)
 
 while True:
     print(f"Checking schedule at {datetime.datetime.now()}")
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(14400)
