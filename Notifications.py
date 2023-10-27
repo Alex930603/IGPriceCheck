@@ -18,7 +18,7 @@ with open("games.json", "r") as file:
     game_data = json.load(file)
 
 for game in game_data:
-    if game["price"]>=game["price_range"]:
+    if game["price"]<=game["price_range"]:
         name=game["name"]
         price=game["price"]
         print(name)
