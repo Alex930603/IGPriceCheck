@@ -6,7 +6,8 @@ app = Flask(__name__)
 @app.route('/trigger_notifications', methods=['POST'])
 def trigger_notifications():
     # Execute your notifications.py script
-    subprocess.run(["python", "notifications.py"])
+    subprocess.run(["python","UpdatePrice.py"])
+    subprocess.run(["python", "Notifications.py"])
     return "Notifications triggered"
 
 if __name__ == '__Hook__':
