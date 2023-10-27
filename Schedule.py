@@ -33,4 +33,4 @@ def notify_changes():
 while True:
     print(f"Checking schedule at {datetime.datetime.now()}")
     schedule.run_pending()
-    time.sleep(14400)
+    time.sleep(10)
