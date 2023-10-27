@@ -12,7 +12,7 @@ def notify_local_computer():
         print("Notifications triggered successfully on your local computer")
         # Schedule the updatePrice and Notifications tasks at specific times
 # Schedule the notify_local_computer function at a specific time
-schedule.every().day.at("16:15").do(notify_local_computer)
+schedule.every(1).minutes.do(notify_local_computer)
 
 
 # Map the system timezone identifier to the corresponding pytz identifier
@@ -22,15 +22,7 @@ pytz_mapping = {
         }
 expected_timezone_identifier = pytz_mapping.get(system_timezone_identifier, 'Europe/Amsterdam')
 
-
-# Function to execute the daily_task.py script
-def check_prices():
-    subprocess.run(["python", "UpdatePrice.py"])
-
-def notify_changes():
-    subprocess.run(["python","Notifications.py"])
-
 while True:
     print(f"Checking schedule at {datetime.datetime.now()}")
     schedule.run_pending()
-    time.sleep(10)
+    time.sleep(60)
